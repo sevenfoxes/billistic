@@ -1,4 +1,4 @@
-package com.example.billistic;
+package com.landlockcreative.billistic;
 
 import android.os.Bundle;
 
