@@ -17,9 +17,3 @@ class LoadExpensesAction extends ExpenseAction {
 
   int get id => _id;
 }
-
-// class ExpensesLoadedAction {
-//   final List<Expense> expenses;
-
-//   ExpensesLoadedAction(this.expenses);
-// }

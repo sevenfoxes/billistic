@@ -22,11 +22,3 @@ class Expense {
     );
   }
 }
-
-class ExpenseState {
-  final List<Expense> expenses;
-
-  const ExpenseState({@required this.expenses});
-
-  ExpenseState.initialState() : expenses = <Expense>[];
-}
