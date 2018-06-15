@@ -5,8 +5,8 @@ dependencies:
   meta:
   flutter:
     sdk: flutter
-  cloud_firestore:
-  cupertino_icons: ^0.1.2
+  cloud_firestore: "^0.7.3"
+  cupertino_icons: "^0.1.2"
   redux: "^3.0.0"
   flutter_redux: "^0.5.1"
 
@@ -22,10 +22,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
