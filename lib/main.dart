@@ -1,49 +1,33 @@
+// support
 import 'package:flutter/material.dart';
+
+// pages
+import 'package:billistic/pages/home.dart';
+
+// redux
+import 'package:billistic/models/app_state.dart';
+import 'package:billistic/reducers/app_reducer.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-import 'package:billistic/models/models.dart';
-import 'package:billistic/reducers/reducers.dart';
+import 'package:redux_logging/redux_logging.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new Billistic());
 
-class MyApp extends StatelessWidget {
+class Billistic extends StatelessWidget {
+  final String title = "Billistic";
+
   final store = new Store<AppState>(appReducer,
-      initialState: new AppState.initialState());
+      initialState: new AppState(),
+      middleware: [new LoggingMiddleware.printer()]);
 
   @override
   Widget build(BuildContext context) {
     return new StoreProvider(
-        store: store,
-        child: new MaterialApp(
-          title: 'Flutter Demo',
-          theme: new ThemeData(
-            primarySwatch: Colors.green,
-          ),
-          home: new MyHomePage(title: 'Billistic'),
-        ));
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return new StoreBuilder(builder: (context, Store<AppState> store) {
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(title),
-        ),
-        body: new Center(
-          child: new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: store.state.expenses.map<Widget>((expense) {
-                return new Text(expense.name);
-              }).toList()),
-        ),
-      );
-    });
+      store: store,
+      child: new MaterialApp(
+        title: title,
+        home: new HomeScreen(title),
+      ),
+    );
   }
 }

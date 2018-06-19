@@ -1,14 +1,18 @@
-import 'package:billistic/models/models.dart';
-import 'package:meta/meta.dart';
-
-@immutable
 class AppState {
+  final int count;
   final bool isLoading;
-  final List<Expense> expenses;
 
-  const AppState({@required this.expenses, this.isLoading});
+  AppState({this.count = 0, this.isLoading = false});
 
-  AppState.initialState()
-      : expenses = <Expense>[],
-        isLoading = true;
+  AppState copyWith({int count, bool isLoading}) {
+    return new AppState(
+      count: count ?? this.count,
+      isLoading: isLoading ?? this.isLoading,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'AppState{isLoading: $isLoading, count: $count}';
+  }
 }
