@@ -24,3 +24,14 @@ class LogInFail {
     return 'LogIn{There was an error loggin in: $error}';
   }
 }
+
+class LogOut {}
+
+class LogOutSuccessful {
+  LogOutSuccessful();
+
+  @override
+  String toString() {
+    return 'LogOut{user: null}';
+  }
+}
